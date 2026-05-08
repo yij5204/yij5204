@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이세훈 상업부동산 | 마포·홍대·합정 30년 전문</title>
+<meta name="description" content="30년 경력 마포·홍대·합정 상업용 부동산 개발·중개·컨설팅. AI 조감도·투시도 자동생성 서비스.">
+<meta property="og:title" content="이세훈 상업부동산 | 마포·홍대·합정 30년 전문">
+<meta property="og:description" content="30년 경력 상업용 부동산 전문가. AI가 그려주는 내 건물의 미래.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0f1e;
+    --navy2: #111827;
+    --gold: #c9a84c;
+    --gold2: #e8c96e;
+    --cream: #f5f0e8;
+    --gray: #8a8fa0;
+    --white: #ffffff;
+    --border: rgba(201,168,76,0.25);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--cream); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 0.1em;
+    opacity: 0.8; transition: opacity .2s, color .2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    padding: 0.5rem 1.4rem; border: none; border-radius: 2px;
+    font-size: 0.82rem; font-weight: 500; cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.08em; transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--gold2); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      linear-gradient(135deg, rgba(10,15,30,0.95) 40%, rgba(10,15,30,0.6) 100%),
+      url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80') center/cover;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold); color: var(--gold);
+    font-size: 0.75rem; letter-spacing: 0.2em;
+    padding: 0.4rem 1rem; margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero-title em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    font-size: 1.05rem; line-height: 1.8;
+    color: rgba(245,240,232,0.75); max-width: 520px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 0.85rem 2rem; border: none; border-radius: 2px;
+    font-size: 0.9rem; font-weight: 500; cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.05em; transition: background .2s, transform .2s;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    padding: 0.85rem 2rem;
+    border: 1px solid rgba(245,240,232,0.35); border-radius: 2px;
+    font-size: 0.9rem; cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: 0.05em; transition: border-color .2s, transform .2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .hero-stats {
+    position: relative; z-index: 2;
+    display: flex; gap: 3rem; margin-top: 5rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+  .stat { border-left: 2px solid var(--gold); padding-left: 1.2rem; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--gray); margin-top: 0.3rem; letter-spacing: 0.1em; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 6rem 4rem; }
+  .section-tag {
+    font-size: 0.72rem; letter-spacing: 0.25em; color: var(--gold);
+    margin-bottom: 1rem; text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 600; line-height: 1.3; margin-bottom: 1rem;
+  }
+  .section-desc {
+    color: rgba(245,240,232,0.65); font-size: 0.95rem;
+    line-height: 1.9; max-width: 560px;
+  }
+  .divider { width: 40px; height: 2px; background: var(--gold); margin: 1.5rem 0; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--navy2); }
+  .services-header { max-width: 1100px; margin: 0 auto 3.5rem; }
+  .services-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 1.5px; background: var(--border);
+  }
+  .service-card {
+    background: var(--navy2); padding: 2.5rem 2rem;
+    transition: background .3s;
+    cursor: default;
+  }
+  .service-card:hover { background: rgba(201,168,76,0.06); }
+  .service-icon {
+    font-size: 2rem; margin-bottom: 1.2rem; display: block;
+  }
+  .service-card h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.15rem; margin-bottom: 0.8rem; color: var(--cream);
+  }
+  .service-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.8; }
+
+  /* ── AI FEATURE ── */
+  #ai {
+    background: linear-gradient(135deg, #070d1a 0%, #0a1628 100%);
+    position: relative; overflow: hidden;
+  }
+  #ai::before {
+    content: 'AI';
+    position: absolute; right: -2rem; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 22vw; font-weight: 900;
+    color: rgba(201,168,76,0.03); line-height: 1;
+    pointer-events: none;
+  }
+  .ai-layout {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .ai-visual {
+    border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+    position: relative;
+  }
+  .ai-screen {
+    background: #0d1626; padding: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: 0.5rem;
+  }
+  .ai-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .ai-mockup-body { padding: 2rem; }
+  .ai-prompt-box {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--border); border-radius: 3px;
+    padding: 1rem 1.2rem; margin-bottom: 1.5rem;
+    font-size: 0.82rem; color: var(--gold); font-style: italic;
+  }
+  .ai-result {
+    background: rgba(255,255,255,0.04);
+    border-radius: 3px; aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gray); font-size: 0.8rem;
+    position: relative; overflow: hidden;
+  }
+  .ai-result-shimmer {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent 20%, rgba(201,168,76,0.08) 50%, transparent 80%);
+    animation: shimmer 2s infinite;
+  }
+  .ai-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .ai-tag {
+    border: 1px solid var(--border); border-radius: 30px;
+    padding: 0.3rem 0.8rem; font-size: 0.72rem; color: var(--gold);
+  }
+  .ai-steps { list-style: none; margin-top: 2rem; }
+  .ai-step {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    margin-bottom: 1.8rem; padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .ai-step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--gold);
+    line-height: 1; min-width: 2rem;
+  }
+  .step-text h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .step-text p { font-size: 0.82rem; color: var(--gray); line-height: 1.7; }
+
+  /* ── REFERENCE ── */
+  #reference { background: var(--navy); }
+  .ref-header { max-width: 1100px; margin: 0 auto 3rem; }
+  .ref-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+  }
+  .ref-card {
+    border: 1px solid var(--border); border-radius: 3px;
+    overflow: hidden; transition: border-color .3s, transform .3s;
+    cursor: pointer;
+  }
+  .ref-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .ref-thumb {
+    aspect-ratio: 16/10; background: rgba(255,255,255,0.04);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; position: relative; overflow: hidden;
+  }
+  .ref-thumb-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), transparent);
+  }
+  .ref-info { padding: 1.2rem 1.4rem; }
+  .ref-area {
+    font-size: 0.7rem; color: var(--gold); letter-spacing: 0.15em;
+    margin-bottom: 0.4rem;
+  }
+  .ref-info h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .ref-info p { font-size: 0.78rem; color: var(--gray); }
+
+  /* ── BOARD (게시판 미리보기) ── */
+  #board { background: var(--navy2); }
+  .board-inner { max-width: 900px; margin: 0 auto; }
+  .board-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; }
+  .board-list { border-top: 1px solid var(--border); }
+  .board-item {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 1rem 0; border-bottom: 1px solid rgba(201,168,76,0.08);
+    cursor: pointer; transition: background .2s;
+    text-decoration: none; color: inherit;
+  }
+  .board-item:hover .board-item-title { color: var(--gold); }
+  .board-badge {
+    font-size: 0.65rem; padding: 0.2rem 0.6rem;
+    border-radius: 30px; white-space: nowrap;
+  }
+  .badge-new { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid var(--border); }
+  .badge-hot { background: rgba(220,60,60,0.15); color: #e05050; border: 1px solid rgba(220,60,60,0.3); }
+  .board-item-title { flex: 1; font-size: 0.9rem; }
+  .board-item-date { font-size: 0.75rem; color: var(--gray); }
+
+  /* ── GROWTH (카카오 공유) ── */
+  #growth {
+    background: linear-gradient(135deg, #0a0f1e, #111827);
+    text-align: center;
+  }
+  .growth-inner { max-width: 700px; margin: 0 auto; }
+  .growth-inner .section-title { text-align: center; }
+  .growth-inner .divider { margin: 1.5rem auto; }
+  .growth-inner .section-desc { margin: 0 auto 2.5rem; text-align: center; }
+  .kakao-share-btn {
+    display: inline-flex; align-items: center; gap: 0.8rem;
+    background: #FEE500; color: #3A1D1D;
+    padding: 1rem 2.5rem; border: none; border-radius: 4px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: transform .2s, box-shadow .2s;
+    margin-bottom: 1rem;
+  }
+  .kakao-share-btn:hover { transform: scale(1.04); box-shadow: 0 8px 30px rgba(254,229,0,0.3); }
+  .kakao-icon { width: 24px; height: 24px; }
+  .growth-note { font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
+  .share-count {
+    display: inline-block; margin: 0 0.5rem;
+    font-size: 1.5rem; font-weight: 700; color: var(--gold);
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  .contact-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.78rem; color: var(--gray); letter-spacing: 0.08em; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 2px; padding: 0.75rem 1rem;
+    color: var(--cream); font-size: 0.88rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none; transition: border-color .2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-group select option { background: var(--navy2); }
+  .contact-info { padding-top: 0.5rem; }
+  .contact-item { display: flex; gap: 1rem; margin-bottom: 1.8rem; }
+  .contact-item-icon { font-size: 1.4rem; min-width: 2rem; }
+  .contact-item-text h4 { font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .contact-item-text p { font-size: 0.82rem; color: var(--gray); }
+  .map-placeholder {
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 3px; padding: 2rem; margin-top: 2rem;
+    text-align: center; color: var(--gray); font-size: 0.82rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050810; padding: 3rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); }
+  .footer-copy { font-size: 0.75rem; color: var(--gray); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-size: 0.75rem; color: var(--gray); text-decoration: none; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .ai-layout, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">이세훈 부동산</div>
+  <ul class="nav-links">
+    <li><a href="#services">서비스</a></li>
+    <li><a href="#ai">AI 기능</a></li>
+    <li><a href="#reference">레퍼런스</a></li>
+    <li><a href="#board">정보</a></li>
+    <li><a href="#contact">견적문의</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">무료 상담 신청</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">마포 · 홍대 · 합정 전문</div>
+    <h1 class="hero-title">
+      30년이 쌓은<br>
+      <em>상업용 부동산</em><br>
+      그리고 AI의 미래
+    </h1>
+    <p class="hero-sub">
+      마포·홍대·합정에서 30년간 쌓아온 현장 경험.<br>
+      이제 AI가 그려주는 조감도와 투시도로<br>
+      당신의 건물 미래를 눈으로 확인하세요.
+    </p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">🏢 무료 견적 받기</button>
+      <button class="btn-outline" onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth'})">AI 조감도 체험</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">30<span style="font-size:1.2rem">년</span></div>
+      <div class="stat-label">현장 경험</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">500<span style="font-size:1.2rem">+</span></div>
+      <div class="stat-label">거래 완료 건</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">핵심 상권 특화</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">AI</div>
+      <div class="stat-label">조감도 자동생성</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-tag">SERVICES</div>
+    <h2 class="section-title">개발부터 중개, 컨설팅까지<br>원스톱으로 해결합니다</h2>
+    <div class="divider"></div>
+    <p class="section-desc">마포·홍대·합정 상권에 특화된 30년 네트워크와 AI 기술을 결합, 부동산의 모든 단계를 지원합니다.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">🏗️</span>
+      <h3>부동산 개발</h3>
+      <p>토지 발굴부터 설계, 인허가, 시공사 선정까지. 30년 개발 경험으로 수익성 높은 상업시설을 기획합니다.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤝</span>
+      <h3>상업용 중개</h3>
+      <p>마포·홍대·합정 핵심 상권의 매매·임대 전문. 숨겨진 매물과 실거래 데이터 기반 정확한 시세 제공.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📊</span>
+      <h3>투자 컨설팅</h3>
+      <p>수익률 분석, 리모델링 ROI 시뮬레이션, 세금 전략까지. 데이터 기반의 맞춤형 투자 솔루션.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤖</span>
+      <h3>AI 조감도·투시도</h3>
+      <p>견적 요청 즉시 AI가 자동으로 건물 외관 조감도와 인테리어 투시도를 생성. 눈으로 먼저 확인하세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI FEATURE -->
+<section id="ai">
+  <div class="ai-layout">
+    <div class="ai-visual reveal">
+      <div class="ai-screen">
+        <div class="ai-dot" style="background:#e05050"></div>
+        <div class="ai-dot" style="background:#e09020"></div>
+        <div class="ai-dot" style="background:#40b060"></div>
+      </div>
+      <div class="ai-mockup-body">
+        <div class="ai-prompt-box">
+          "마포구 4층 근린상가, 1층 카페 2~4층 오피스, 유리 외관, 모던 스타일로 조감도 생성해줘"
+        </div>
+        <div class="ai-result">
+          <div class="ai-result-shimmer"></div>
+          <span>🏢 AI 조감도 생성 중...</span>
+        </div>
+        <div class="ai-tags">
+          <span class="ai-tag">조감도</span>
+          <span class="ai-tag">투시도</span>
+          <span class="ai-tag">내부 인테리어</span>
+          <span class="ai-tag">야경 렌더링</span>
+          <span class="ai-tag">평면도</span>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">AI AGENT</div>
+      <h2 class="section-title">견적 넣으면<br>AI가 그려드립니다</h2>
+      <div class="divider"></div>
+      <p class="section-desc" style="margin-bottom:2rem">건축 전 단계에서 수천만 원이 들던 조감도와 투시도를. 이제 AI가 몇 분 안에 자동으로 생성해드립니다.</p>
+      <ul class="ai-steps">
+        <li class="ai-step">
+          <span class="step-num">01</span>
+          <div class="step-text">
+            <h4>견적 정보 입력</h4>
+            <p>위치, 층수, 용도, 원하는 스타일을 간단히 입력</p>
+          </div>
+        </li>
+        <li class="ai-step">
+          <span class="step-num">02</span>
+          <div class="step-text">
+            <h4>AI 자동 조감도 생성</h4>
+            <p>외관 조감도, 투시도, 인테리어 이미지 자동 생성</p>
+          </div>
+        </li>
+        <li class="ai-step">
+          <span class="step-num">03</span>
+          <div class="step-text">
+            <h4>수정 & 확정</h4>
+            <p>마음에 드는 방향으로 수정 요청 후 최종 개발 진행</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCE -->
+<section id="reference">
+  <div class="ref-header reveal">
+    <div class="section-tag">REFERENCE</div>
+    <h2 class="section-title">직접 개발·중개한<br>실제 레퍼런스</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="ref-grid">
+    <div class="ref-card reveal">
+      <div class="ref-thumb">
+        <div class="ref-thumb-bg"></div>
+        <span>🏬</span>
+      </div>
+      <div class="ref-info">
+        <div class="ref-area">마포구 · 상수동</div>
+        <h3>지하1층~5층 근린상가</h3>
+        <p>1층 F&B / 2~5층 사무실 | 분양 완료</p>
+      </div>
+    </div>
+    <div class="ref-card reveal">
+      <div class="ref-thumb">
+        <div class="ref-thumb-bg"></div>
+        <span>☕</span>
+      </div>
+      <div class="ref-info">
+        <div class="ref-area">마포구 · 합정동</div>
+        <h3>카페 특화 복합상가</h3>
+        <p>1층 카페거리 조성 | 임대수익률 6.2%</p>
+      </div>
+    </div>
+    <div class="ref-card reveal">
+      <div class="ref-thumb">
+        <div class="ref-thumb-bg"></div>
+        <span>🎨</span>
+      </div>
+      <div class="ref-info">
+        <div class="ref-area">서대문구 · 홍대</div>
+        <h3>문화·예술 복합 상업시설</h3>
+        <p>갤러리 + 공방 + 팝업스토어 | 기획·개발</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section id="board">
+  <div class="board-inner">
+    <div class="board-header reveal">
+      <div>
+        <div class="section-tag">BOARD</div>
+        <h2 class="section-title">부동산 정보 게시판</h2>
+      </div>
+      <a href="#" style="color:var(--gold); font-size:0.82rem; text-decoration:none;">전체 보기 →</a>
+    </div>
+    <div class="board-list reveal">
+      <a class="board-item" href="#">
+        <span class="board-badge badge-new">NEW</span>
+        <span class="board-item-title">2025 마포구 상업용 부동산 시세 전망 분석</span>
+        <span class="board-item-date">2025.05.01</span>
+      </a>
+      <a class="board-item" href="#">
+        <span class="board-badge badge-hot">HOT</span>
+        <span class="board-item-title">홍대 합정 카페 상권 공실률 현황 및 투자 포인트</span>
+        <span class="board-item-date">2025.04.22</span>
+      </a>
+      <a class="board-item" href="#">
+        <span class="board-badge badge-new">NEW</span>
+        <span class="board-item-title">AI 조감도로 시공 전 확인한 건물주 후기 인터뷰</span>
+        <span class="board-item-date">2025.04.18</span>
+      </a>
+      <a class="board-item" href="#">
+        <span class="board-badge" style="border:1px solid var(--border); color:var(--gray); font-size:0.65rem; padding:0.2rem 0.6rem; border-radius:30px;">INFO</span>
+        <span class="board-item-title">상업용 부동산 개발 시 필수 체크리스트 10가지</span>
+        <span class="board-item-date">2025.04.10</span>
+      </a>
+      <a class="board-item" href="#">
+        <span class="board-badge" style="border:1px solid var(--border); color:var(--gray); font-size:0.65rem; padding:0.2rem 0.6rem; border-radius:30px;">INFO</span>
+        <span class="board-item-title">근린상가 임대수익률 계산법 완전 정복</span>
+        <span class="board-item-date">2025.03.30</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH / 카카오 공유 -->
+<section id="growth">
+  <div class="growth-inner reveal">
+    <div class="section-tag" style="text-align:center">SHARE & GROW</div>
+    <h2 class="section-title">지인에게 공유하면<br><em style="color:var(--gold); font-style:normal">특별 혜택</em>이 돌아옵니다</h2>
+    <div class="divider"></div>
+    <p class="section-desc">
+      카카오톡으로 공유할 때마다 AI 조감도 1회 무료 크레딧 적립.<br>
+      지인이 상담 신청하면 <strong style="color:var(--gold)">커피쿠폰 + 컨설팅 10% 할인</strong>을 드립니다.
+    </p>
+    <div style="margin-bottom:1.5rem">
+      현재까지 공유 횟수 <span class="share-count" id="share-count">1,284</span>회
+    </div>
+    <button class="kakao-share-btn" onclick="shareKakao()">
+      <svg class="kakao-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.74 1.56 5.15 3.9 6.62l-.99 3.68 4.26-2.81c.9.17 1.83.26 2.83.26 5.52 0 10-3.48 10-7.8S17.52 3 12 3z"/>
+      </svg>
+      카카오톡으로 공유하기
+    </button>
+    <p class="growth-note">※ 공유 시 자동으로 내 추천 링크가 생성됩니다. 지인이 상담 신청 시 양쪽 모두 혜택 제공.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-tag">CONTACT</div>
+      <h2 class="section-title">무료 견적 &<br>상담 신청</h2>
+      <div class="divider"></div>
+      <div class="contact-form">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="form-group">
+            <label>이름</label>
+            <input type="text" placeholder="홍길동">
+          </div>
+          <div class="form-group">
+            <label>연락처</label>
+            <input type="tel" placeholder="010-0000-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>문의 유형</label>
+          <select>
+            <option>부동산 개발 상담</option>
+            <option>매매·임대 중개</option>
+            <option>투자 컨설팅</option>
+            <option>AI 조감도·투시도 견적</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>관심 지역 / 예산</label>
+          <input type="text" placeholder="예: 마포구 합정동, 예산 30억">
+        </div>
+        <div class="form-group">
+          <label>상세 문의 내용</label>
+          <textarea placeholder="원하시는 건물 용도, 층수, 스타일 등 자유롭게 작성해주세요."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%; padding:1rem;" onclick="submitForm()">
+          📩 무료 상담 신청하기
+        </button>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-info">
+        <div class="section-tag">INFO</div>
+        <h3 class="section-title" style="font-size:1.5rem; margin-bottom:2rem">오시는 길</h3>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div class="contact-item-text">
+            <h4>사무실 위치</h4>
+            <p>서울시 마포구 홍대입구역 인근<br>(상세 주소는 상담 예약 후 안내)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <div class="contact-item-text">
+            <h4>전화 상담</h4>
+            <p>02-000-0000<br>평일 09:00 ~ 18:00</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">💬</span>
+          <div class="contact-item-text">
+            <h4>카카오톡 상담</h4>
+            <p>@이세훈부동산<br>24시간 메시지 접수</p>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          🗺️ 지도 API 연동 예정<br>
+          <small style="opacity:0.6">마포구 · 홍대 · 합정 권역 커버리지</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">이세훈 상업부동산</div>
+    <p class="footer-copy" style="margin-top:0.4rem">© 2025 Lee Se-hun Real Estate. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+    <a href="#">개인정보처리방침</a>
+    <a href="#">이용약관</a>
+    <a href="#contact">문의하기</a>
+  </div>
+</footer>
+
+<script>
+// ── Scroll Reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// ── Share Count 카운터 애니메이션
+function animateCount(el, target) {
+  let count = target - 120;
+  const step = Math.ceil(120 / 60);
+  const interval = setInterval(() => {
+    count += step;
+    if (count >= target) { count = target; clearInterval(interval); }
+    el.textContent = count.toLocaleString();
+  }, 25);
+}
+const countEl = document.getElementById('share-count');
+const countObserver = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    animateCount(countEl, 1284);
+    countObserver.disconnect();
+  }
+});
+countObserver.observe(countEl);
+
+// ── 카카오톡 공유
+function shareKakao() {
+  const shareText = encodeURIComponent(
+    '🏢 마포·홍대·합정 상업부동산 30년 전문가\n' +
+    'AI가 그려주는 조감도·투시도 무료 체험!\n' +
+    '지금 링크 누르면 AI 조감도 1회 무료 크레딧 드려요 👇'
+  );
+  const shareUrl = encodeURIComponent(window.location.href + '?ref=' + btoa(Date.now()));
+  
+  // 카카오SDK 미설치 환경에서는 링크 복사로 폴백
+  if (navigator.share) {
+    navigator.share({
+      title: '이세훈 상업부동산 | 30년 전문 + AI 조감도',
+      text: '마포·홍대·합정 30년 부동산 전문가. AI가 그려주는 내 건물의 미래.',
+      url: window.location.href
+    }).then(() => {
+      alert('✅ 공유해주셔서 감사합니다!\nAI 조감도 1회 무료 크레딧이 적립되었습니다.');
+    }).catch(() => {});
+  } else {
+    // 클립보드 복사
+    const link = window.location.href + '?ref=share';
+    navigator.clipboard.writeText(link).then(() => {
+      alert('🔗 링크가 복사되었습니다!\n카카오톡에 붙여넣기해서 공유해보세요.\n\n공유 후 AI 조감도 1회 크레딧이 적립됩니다.');
+    }).catch(() => {
+      alert('공유 링크: ' + link);
+    });
+  }
+}
+
+// ── Form Submit
+function submitForm() {
+  alert('✅ 상담 신청이 완료되었습니다!\n담당자가 24시간 내에 연락드리겠습니다.\n\n이세훈 상업부동산을 신뢰해주셔서 감사합니다 🙏');
+}
+</script>
+</body>
+</html>
